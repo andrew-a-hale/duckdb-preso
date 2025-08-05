@@ -88,7 +88,7 @@ section {
 ---
 
 # Links
-- Repo: 
+- Repo: https://github.com/andrew-a-hale/duckdb-preso
 - Austender Bash Script: https://github.com/andrew-a-hale/austender
 - XLSX Challenge: https://github.com/andrew-a-hale/xlsx-challenge
 
