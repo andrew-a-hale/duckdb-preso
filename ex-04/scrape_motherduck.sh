@@ -4,6 +4,13 @@ set -e
 export S3_DATA_PATH="s3://austender/bronze"
 
 DUCKDB_PREAMBLE="\
+create secret austender (
+    TYPE S3,
+    KEY_ID '$AWS_ACCESS_KEY',
+    SECRET '$AWS_SECRET_ACCESS_KEY',
+    REGION 'us-east-1'
+);
+
 install ducklake;
 install s3;
 attach 'ducklake:md:__ducklake_metadata_metaduck' as lake;"
@@ -57,7 +64,7 @@ jobs=$(duckdb dat.db -list -noheader -c "select job_id from jobs where completed
 
 # EXTRACT
 TICK=$(date +%s%N)
-parallel call ::: $jobs
+# parallel call ::: $jobs
 TOCK=$(date +%s%N)
 ELAPSED=$((TOCK - TICK))
 REQUESTS=$(wc -l <$LOG)

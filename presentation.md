@@ -43,7 +43,7 @@ section {
 # MotherDuck
 
 - Simplify User Management with only Organisations, Admins, and Members
-- Dual Execution for individual query nodes
+- Hybrid Execution
   - Local Compute with DuckDB Client and WASM
   - On-demand and Provisioned compute from MotherDuck
 - Consumption
